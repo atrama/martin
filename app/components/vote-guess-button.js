@@ -4,10 +4,10 @@ export default Ember.Component.extend({
 	actions:{
 		guess:function(isTrue){
 			if(isTrue){
-				this.set('correct', true)
+				this.set('correct', true);
 			}else{
-				this.set('wrong', true)
-			}			
+				this.set('wrong', true);
+			}
 		}
 	}
 });
