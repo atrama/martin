@@ -1,0 +1,69 @@
+$color1: rgb(241,235,144);
+$colorBg: #FFFFED;
+
+$fontHd: 'Biryani', sans-serif;
+
+$xs:393px;
+$sm:700px;
+$md:1100px;
+$lg:1400px;
+
+@mixin mq($size:lg) {
+  @if $size == lg {
+    @media (min-width: $lg) { @content; }
+  }
+  @else if $size == md {
+    @media (min-width: $md) { @content; }
+  }
+  @else if $size == sm {
+    @media (min-width: $sm) { @content; }
+  }
+  @else if $size == xs {
+    @media (min-width: $xs)  { @content; }
+  }
+}
+
+
+html{
+	font-size:18px;
+}
+p{
+	margin:0 0 1rem 0;
+}
+img{
+	max-width:100%;
+}
+
+h1{
+	margin:0;
+	font-family: $fontHd;
+}
+
+.filmComp{
+	
+	&:nth-child(even){
+		background:$colorBg;
+	}
+}
+
+.poster{
+	@include mq($size:xs){
+		display:flex;
+	}
+	
+	h1{
+		font-size:7vw;
+		line-height:120%;
+	}
+	
+	.filmText{
+		flex: 2 3;
+		@include mq($size:xs){
+			flex-direction:column;
+		}
+	}
+	
+	.imgCont{
+		flex:1 1;
+	}
+}
