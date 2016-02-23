@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	tagName:'li',
+	classNames:['voteGuessButton'],
 	actions:{
 		guess:function(isTrue){
 			if(isTrue){
@@ -8,6 +10,7 @@ export default Ember.Component.extend({
 			}else{
 				this.set('wrong', true);
 			}
+			this.get('onCheck')(this.get('correct'));
 		}
 	}
 });

@@ -1,0 +1,50 @@
+.poster{
+	@include mq($size:xs){
+    padding:$contentPad;
+		display:flex;
+	}
+
+  img{
+    width:100%;
+  }
+
+	h1{
+		font-size:9vw;
+		line-height:120%;
+		text-transform: uppercase;
+
+		@include mq($size:xs){
+			font-size:10vw;
+		}
+		@include mq($size:sm){
+			font-size:7vw;
+		}
+		@include mq($size:lg){
+			font-size:6vw;
+		}
+	}
+
+	.filmText{
+    padding:.75rem .5rem;
+		flex: 2 3;
+		@include mq($size:xs){
+      padding-top: 0;
+			flex-direction:column;
+		}
+
+		p{
+			text-align: justify;
+			@include mq($size:xs){
+				font-size:3vw;
+			}
+			@include mq($size:sm){
+				font-size: 2.25vw;
+			}
+		}
+
+	}
+
+	.imgCont{
+		flex:1 1;
+	}
+}

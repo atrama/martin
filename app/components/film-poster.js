@@ -18,6 +18,8 @@ export default Ember.Component.extend({
 	init:function(){
 		this._super();
 		var comp = this;
+		//set initial width so user does not have to resize
+		comp.set('windowWidth',window.innerWidth);
 
 			//on resize, set window width which is observed above to change the image path dep on size
 	    this.get('resizeService').on('debouncedDidResize', event => {

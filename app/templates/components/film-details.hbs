@@ -1,4 +1,4 @@
 {{yield}}
-<p>Released in {{film.release_date}}</p>
-<p>{{film.vote_average}}</p>
-{{vote-guess vote=film.vote_average}}
+{{! vote-guess vote=film.vote_average title=film.title onAdd=(action "addThem")}}
+{{ vote-guess vote=film.vote_average title=film.title onAdd=(action addPoints)}}
+totalPoints {{totalPoints}}

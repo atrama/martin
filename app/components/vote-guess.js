@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	tagName: 'ul',
+	classNames:['voteGuess'],
 	randomizeVotes:function(){
 		var trueVote = this.vote;
 
@@ -77,5 +78,18 @@ export default Ember.Component.extend({
 		//shuffle vote options so true isnt always first
 		options = shuffle(options);
 		return options;
-	}.property()
+	}.property(),
+	numGuessLeft: 4,
+	pointsBase: 10,
+	points: 0,
+	actions:{
+		calcPoints:function(isRight){
+			var score = this.get('numGuessLeft') * this.get('pointsBase');
+			if(isRight === true){
+				this.set('points', score);
+			}
+			this.numGuessLeft --;
+			this.get('onAdd')(this.get('points'));
+		}
+	}
 });

@@ -1,12 +1,19 @@
-$color1: rgb(241,235,144);
-$colorBg: #FFFFED;
+$color1: #FCB924;
+$gray: #444;
+$colorBg: #EFEFEA;
 
-$fontHd: 'Biryani', sans-serif;
+$font: 'Quattrocento', serif;
+$fontHd: 'Oswald', sans-serif;
 
-$xs:393px;
-$sm:700px;
-$md:1100px;
-$lg:1400px;
+$contentPad:2rem .5rem;
+
+$xs:451px;
+$sm:701px;
+$md:1101px;
+$lg:1401px;
+
+//transition duration
+$dur:.5s;
 
 @mixin mq($size:lg) {
   @if $size == lg {
@@ -23,12 +30,19 @@ $lg:1400px;
   }
 }
 
-
 html{
 	font-size:18px;
+  font-family: $font;
+}
+html,
+body{
+  margin:0;
+  padding: 0;
+  background: $colorBg;
 }
 p{
 	margin:0 0 1rem 0;
+  line-height: 135%;
 }
 img{
 	max-width:100%;
@@ -40,30 +54,10 @@ h1{
 }
 
 .filmComp{
-	
-	&:nth-child(even){
-		background:$colorBg;
-	}
+  margin: 0 0 3.5rem;
+  border-bottom: 3px solid $gray;
+  background: $color1;
 }
 
-.poster{
-	@include mq($size:xs){
-		display:flex;
-	}
-	
-	h1{
-		font-size:7vw;
-		line-height:120%;
-	}
-	
-	.filmText{
-		flex: 2 3;
-		@include mq($size:xs){
-			flex-direction:column;
-		}
-	}
-	
-	.imgCont{
-		flex:1 1;
-	}
-}
+@import 'poster';
+@import 'vote-guess';

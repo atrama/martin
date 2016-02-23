@@ -1,0 +1,10 @@
+@import 'vote-guess-button';
+
+.voteGuess{
+  margin: 0;
+  padding: $contentPad;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
