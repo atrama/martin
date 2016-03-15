@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	tagName: 'ul',
 	classNames:['voteGuess'],
+	classNameBindings:['disableAll:disableAll'],
+	disableAll:false,
 	randomizeVotes:function(){
 		var trueVote = this.vote;
 
@@ -37,10 +39,10 @@ export default Ember.Component.extend({
 				var score;
 
 				//keep score eq/lt 10 and not eq to correct score
-				while (!score || score >= 10.0 || score === trueVote){
+				while (!score || score >= 10.0 || (score.toFixed(1) === trueVote.toFixed(1))){
 					score = Math.random() * (max - min) + min;
-					//round score to #.##
-					score = score.toFixed(1);
+					//round score to #.##. divide by 1 to keep as a number not string
+					score = score.toFixed(1) / 1;
 				}
 				return score;
 			}
@@ -67,7 +69,7 @@ export default Ember.Component.extend({
 
 			} while (counter > 0);
 					return randomVotes;
-		}
+				}
 
 		var options = randomizeVotes(votes);
 
@@ -80,14 +82,20 @@ export default Ember.Component.extend({
 		return options;
 	}.property(),
 	numGuessLeft: 4,
-	pointsBase: 10,
+	pointsBase: 25,
 	points: 0,
+	disable:false,
 	actions:{
 		calcPoints:function(isRight){
 			var score = this.get('numGuessLeft') * this.get('pointsBase');
+
 			if(isRight === true){
 				this.set('points', score);
+				//disable from more clicks
+				this.set('disable', true);
+				this.set('disableAll', true);
 			}
+
 			this.numGuessLeft --;
 			this.get('onAdd')(this.get('points'));
 		}

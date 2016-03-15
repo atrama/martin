@@ -7,4 +7,11 @@
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
+
+  @include mq($size:xs){
+    padding-top:0;
+  }
+  @include mq($size:lg){
+    padding: $contentPad;
+  }
 }

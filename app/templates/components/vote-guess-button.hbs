@@ -1,2 +1,2 @@
 {{yield}}
- <button type="button" {{action "guess" item.isTrue}} class={{if correct 'disable correct'}} class={{if wrong 'disable wrong'}}>{{item.vote}}</button>
+ <button type="button" {{action "guess" item.isTrue}} disabled={{disable}} class={{if correct 'disable correct'}} class={{if wrong 'disable wrong'}}>{{item.vote}}</button>

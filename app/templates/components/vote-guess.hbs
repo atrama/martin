@@ -1,6 +1,4 @@
 {{yield}}
-
-<p>Guess the average rating for <em>{{title}}</em></p>
- {{#each randomizeVotes as |item|}}
- {{vote-guess-button item=item onCheck=(action "calcPoints") }}
+{{#each randomizeVotes as |item|}}
+ {{vote-guess-button item=item disable=disable onCheck=(action "calcPoints") }}
 {{/each}}

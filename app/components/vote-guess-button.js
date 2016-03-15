@@ -9,6 +9,7 @@ export default Ember.Component.extend({
 				this.set('correct', true);
 			}else{
 				this.set('wrong', true);
+				this.set('correct', false)
 			}
 			this.get('onCheck')(this.get('correct'));
 		}

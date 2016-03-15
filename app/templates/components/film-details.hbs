@@ -1,4 +1,3 @@
 {{yield}}
-{{! vote-guess vote=film.vote_average title=film.title onAdd=(action "addThem")}}
-{{ vote-guess vote=film.vote_average title=film.title onAdd=(action addPoints)}}
-totalPoints {{totalPoints}}
+{{ vote-guess vote=film.vote_average onAdd=(action addPoints)}}
+<div class="totalPoints">Points: <span>{{totalPoints}}</span></div>

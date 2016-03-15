@@ -14,16 +14,17 @@
 //  flex: 1 1 5rem;
 
   button{
-//    width:100%;
     height:35vw;
     width:35vw;
     margin:3vw 5vw;
-    border:2vw double #fff;
+    border:0.3rem solid $colorBg;
     border-radius: 100%;
     font-size: 8vw;
     font-weight: bold;
+    color:$colorBg;
     background: $color1;
     outline:none;
+    box-shadow: 0 0 0rem 0.3rem $color1;
     cursor:pointer;
     transition-duration: $dur;
 
@@ -31,18 +32,34 @@
     animation-name: slidein;
     animation-iteration-count: infinite;
 
-    &.disable{
+    @include mq($size:xs){
+      height: 17vw;
+      width: 17vw;
+      margin:1vw 3vw;
+      font-size: 5vw;
+    }
+
+    .disableAll &:not(.correct),
+    &.disable:not(.correct){
+      color:$colorBg;
       animation: none;
+      opacity: .25;
+
+      &.disable.wrong{
+        opacity: .1;
+      }
     }
 
   }
-
   .correct{
-    background: green;
+    animation: none;
+    background: $success;
+    box-shadow: 0 0 0rem 0.3rem $success;
   }
   .wrong{
-    opacity: .15;
+    opacity: .25;
     background: $gray;
-    color:#fff;
+    color:$colorBg;
+    box-shadow: 0 0 0rem 0.3rem $gray;
   }
 }

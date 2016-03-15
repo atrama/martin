@@ -3,6 +3,10 @@ import ResizeAware from 'ember-resize/mixins/resize-aware';
 
 export default Ember.Component.extend({
 	classNames:['poster'],
+	year:Ember.computed(function(){
+		var d = new Date(this.get('film.release_date'))
+		return d.getFullYear();
+	}),
 	setWindowSize : Ember.computed('windowWidth', function(){
 		//we have width, set a size based on that and let url look for string not specific #.
 		//this was size is set in one spot, not many

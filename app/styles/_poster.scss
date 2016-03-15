@@ -1,6 +1,7 @@
 .poster{
 	@include mq($size:xs){
     padding:$contentPad;
+		padding-top: 0;
 		display:flex;
 	}
 
@@ -19,8 +20,11 @@
 		@include mq($size:sm){
 			font-size:7vw;
 		}
+		@include mq($size:md){
+			font-size:10.1vw;
+		}
 		@include mq($size:lg){
-			font-size:6vw;
+			font-size:7.5vw;
 		}
 	}
 
@@ -32,13 +36,20 @@
 			flex-direction:column;
 		}
 
+		@include mq($size:md){
+			flex-grow:4;
+		}
+
 		p{
 			text-align: justify;
 			@include mq($size:xs){
 				font-size:3vw;
 			}
 			@include mq($size:sm){
-				font-size: 2.25vw;
+				font-size: 2.9vw;
+			}
+			@include mq($size:md){
+				font-size:1.4rem;
 			}
 		}
 
