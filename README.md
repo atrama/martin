@@ -7,6 +7,11 @@ Test how well you can guess the average TMDB rating for Martin Scorsese's most p
 
 
 ## Changelog
+### 0.0.3
+* add autoprefixer to support last 2 browser versions
+* set baseURL to root for dev environment
+### 0.0.2
+* change baseURL for prototype on github pages
 ### 0.0.1
 * Functional scores
 * Styled and tested for mobile and desktop
