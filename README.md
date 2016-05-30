@@ -7,6 +7,12 @@ Test how well you can guess the average TMDB rating for Martin Scorsese's most p
 
 
 ## Changelog
+### 0.0.4
+* Fixed Safari flex bug when not setting auto to flex shorthand
+* Added some integration tests
+* Style updates
+* Clean up JSHint
+
 ### 0.0.3
 * add autoprefixer to support last 2 browser versions
 * set baseURL to root for dev environment

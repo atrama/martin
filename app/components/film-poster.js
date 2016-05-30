@@ -1,10 +1,9 @@
 import Ember from 'ember';
-import ResizeAware from 'ember-resize/mixins/resize-aware';
 
 export default Ember.Component.extend({
 	classNames:['poster'],
 	year:Ember.computed(function(){
-		var d = new Date(this.get('film.release_date'))
+		var d = new Date(this.get('film.release_date'));
 		return d.getFullYear();
 	}),
 	setWindowSize : Ember.computed('windowWidth', function(){
@@ -16,7 +15,7 @@ export default Ember.Component.extend({
 	}),
 	imgUrl : Ember.computed('windowSize', function(){
 		//use a wide image for small screens, poster for big
-		let url = (this.windowSize==='small') ? this.film.backdrop_path : this.film.poster_path
+		let url = (this.windowSize==='small') ? this.film.backdrop_path : this.film.poster_path;
 		return url;
 	}),
 	init:function(){
@@ -26,7 +25,7 @@ export default Ember.Component.extend({
 		comp.set('windowWidth',window.innerWidth);
 
 			//on resize, set window width which is observed above to change the image path dep on size
-	    this.get('resizeService').on('debouncedDidResize', event => {
+	    this.get('resizeService').on('debouncedDidResize', () => {
 				comp.set('windowWidth',window.innerWidth);
 		});
 	}

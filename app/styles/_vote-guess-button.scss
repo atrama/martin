@@ -33,10 +33,10 @@
     animation-iteration-count: infinite;
 
     @include mq($size:xs){
-      height: 17vw;
-      width: 17vw;
+      height: 11vw;
+      width: 11vw;
       margin:1vw 3vw;
-      font-size: 5vw;
+      font-size: 4vw;
     }
 
     .disableAll &:not(.correct),

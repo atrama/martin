@@ -69,6 +69,18 @@ img{
 	max-width:100%;
 }
 
+main, header{
+  @include mq($size:sm){
+    margin:0 2%;
+  }
+  @include mq($size:md){
+    margin:0 10%;
+  }
+  @include mq(){
+    margin:0 14%;
+  }
+}
+
 h1{
 	margin:0;
 	font-family: $fontHd;
@@ -82,6 +94,10 @@ header{
     flex-wrap: wrap;
     flex-direction: row;
   }
+  @include mq(){
+    margin-top:-2.75vw;
+    padding-top:0;
+  }
   h1{
     text-align: center;
     font-size:calc(33vw - .5rem);
@@ -90,10 +106,18 @@ header{
     line-height: 100%;
 
     @include mq($size:sm){
-      flex: 1 1;
+      flex: 1 1 auto;
       order: 2;
       font-size:20vw;
-      line-height: 90%;
+      line-height: .9;
+    }
+    @include mq($size:md){
+      order: 1;
+      font-size:15vw;
+      line-height: 1;
+    }
+    @include mq(){
+      font-size:23vw;
     }
   }
   p{
@@ -103,6 +127,14 @@ header{
     @include mq($size:sm){
       padding-top: 2vw;
       order: 3;
+    }
+    @include mq(){
+      padding-top:0;
+      flex:3 1 60%;
+      order:2;
+      font-size:1.6vw;
+      line-height:1.55;
+      text-align:justify;
     }
 
   }
@@ -117,12 +149,15 @@ q{
   background: $gray;
 
   @include mq($size:sm){
-    margin: 0 2vw 0 0;
+    margin: 0 0 0 2vw;
     padding: 1.5vw 1vw;
     border-width: 1.5vw;
-    order: 1;
+    order: 2;
     flex: 4 4;
-
+  }
+  @include mq(){
+    flex:2 1 33%;
+    order:3;
   }
 
   &:before,
@@ -135,6 +170,9 @@ q{
     font-size: 6vw;
     @include mq($size:sm){
       font-size: 2.5vw;
+    }
+    @include mq($size:md){
+      font-size: 2vw;
     }
   }
 }

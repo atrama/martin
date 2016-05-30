@@ -74,7 +74,7 @@ export default Ember.Component.extend({
 		var options = randomizeVotes(votes);
 
 		var shuffle = function (o) {
-			for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+			for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x){}
 			return o;
 		};
 		//shuffle vote options so true isnt always first

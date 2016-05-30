@@ -7,21 +7,19 @@ moduleForComponent('vote-guess', 'Integration | Component | vote guess', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{vote-guess}}`);
-
-  assert.equal(this.$().text(), '');
+  assert.expect(1);
+  let testPass = false;
 
   // Template block usage:
   this.render(hbs`
-    {{#vote-guess}}
-      template block text
+    {{#vote-guess vote=7.53}}
     {{/vote-guess}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.$('button').each(function(i, ele){
+    if($(ele).text() === '7.5'){
+      testPass = true;
+    }
+  });
+  assert.equal(testPass, true, 'vote appears in a button and 7.53 rounds to 7.5');
 });

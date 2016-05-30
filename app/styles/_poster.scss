@@ -11,7 +11,7 @@
 
 	h1{
 		font-size:9vw;
-		line-height:120%;
+		line-height:1.2;
 		text-transform: uppercase;
 
 		@include mq($size:xs){
@@ -21,10 +21,11 @@
 			font-size:7vw;
 		}
 		@include mq($size:md){
-			font-size:10.1vw;
+			font-size:8vw;
 		}
 		@include mq($size:lg){
-			font-size:7.5vw;
+			font-size:5.5vw;
+			line-height:1.1;
 		}
 	}
 
@@ -35,9 +36,12 @@
       padding-top: 0;
 			flex-direction:column;
 		}
-
 		@include mq($size:md){
+			padding:0 3rem;
 			flex-grow:4;
+		}
+		@include mq(){
+			flex-grow:5;
 		}
 
 		p{
@@ -49,7 +53,10 @@
 				font-size: 2.9vw;
 			}
 			@include mq($size:md){
-				font-size:1.4rem;
+				font-size:1.2rem;
+			}
+			@include mq(){
+				font-size:1.5rem;
 			}
 		}
 
@@ -57,5 +64,12 @@
 
 	.imgCont{
 		flex:1 1;
+
+		@include mq($size:md){
+			padding-top:.75rem;
+		}
+		@include mq(){
+			flex-grow:2;
+		}
 	}
 }
