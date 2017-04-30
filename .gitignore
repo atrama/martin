@@ -1,4 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+# git push origin `git subtree split --prefix dist master`:gh-pages --force
+
 
 # compiled output
 /tmp
