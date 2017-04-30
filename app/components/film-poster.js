@@ -6,27 +6,19 @@ export default Ember.Component.extend({
 		var d = new Date(this.get('film.release_date'));
 		return d.getFullYear();
 	}),
-	setWindowSize : Ember.computed('windowWidth', function(){
-		//we have width, set a size based on that and let url look for string not specific #.
-		//this was size is set in one spot, not many
-		let size = this.windowWidth > 450 ? 'large' : 'small';
-		this.set('windowSize', size);
-		return size;
-	}),
-	imgUrl : Ember.computed('windowSize', function(){
+	imgUrl : Ember.computed('windowWidth', function(){
 		//use a wide image for small screens, poster for big
-		let url = (this.windowSize==='small') ? this.film.backdrop_path : this.film.poster_path;
+		let url = (this.get('windowWidth') < 450) ? this.film.backdrop_path : this.film.poster_path;
 		return url;
 	}),
-	init:function(){
-		this._super();
-		var comp = this;
+	didRender:function(){
+	//	var comp = this;
 		//set initial width so user does not have to resize
-		comp.set('windowWidth',window.innerWidth);
+		this.set('windowWidth',window.innerWidth);
 
 			//on resize, set window width which is observed above to change the image path dep on size
 	    this.get('resizeService').on('debouncedDidResize', () => {
-				comp.set('windowWidth',window.innerWidth);
+				this.set('windowWidth',window.innerWidth);
 		});
 	}
 });

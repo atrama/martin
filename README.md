@@ -1,12 +1,15 @@
 # Marty!
 
-A tribute to my favorite filmmaker, Martin Scorsese.
+A tribute to my favorite filmmaker, Martin Scorsese. Play the game on the [demo site](http://atrama.github.io/marty/).
 
 Test how well you can guess the average TMDB rating for Martin Scorsese's most popular movies. Click a rating (out of 10) to guess. If you get it right the first time, it's worth 100 points. Every wrong answer docks you 25 points. Written with Ember.js and SCSS; content provided by TMDB.
 
 
 
 ## Changelog
+### 0.0.5
+* Update to ember-cli 2.13.0
+
 ### 0.0.4
 * Fixed Safari flex bug when not setting auto to flex shorthand
 * Added some integration tests

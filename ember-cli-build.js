@@ -7,9 +7,6 @@ module.exports = function(defaults) {
     // Add options here
     autoprefixer:{
       browsers: ['last 2 versions']
-    },
-    fingerprint:{
-      exclude:['vendor.css']
     }
   });
 

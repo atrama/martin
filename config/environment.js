@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'movie',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/marty/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -20,6 +20,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.rootURL = '/';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -29,7 +30,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
